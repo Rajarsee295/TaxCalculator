@@ -7,11 +7,15 @@ A web app to calculate income tax based on user input and selected country. Supp
 ![Tax Calculator Screenshot](./screenshot.png)
 
 
+## 🌐 Live Demo
+
+[View App](https://your-live-link.com)
+
+
 ## ⚙️ Installation
 
 ```bash
 git clone https://github.com/Rajarsee295/tax-calculator.git
-cd tax-measurement
 npm install
 npm run dev
 ```

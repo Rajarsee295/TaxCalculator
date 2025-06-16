@@ -8,11 +8,13 @@ import DetailedInfo from "../components/DetailedInfo";
 import { useRef } from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import {useTax} from '../Hooks/useTax'
 
 //index page here all the components are loaded
 const Index = () => {
-
+  
   const contentRef = useRef();
+  const { taxBreakdown } = useTax()
 
   const downloadAsPDF = async () => {
     const element = contentRef.current;
@@ -41,13 +43,13 @@ const Index = () => {
         <Slabs />
         <DetailedInfo />
       </div>
-      <div className="flex justify-end pt-[40px] pr-[70px] shadow-lg">
-        <button
+      <div className="flex justify-end pt-[40px] pr-[70px] pb-[40px]">
+        {taxBreakdown.length>0 ? <button
           onClick={downloadAsPDF}
           className="mt-6 bg-gray-800 text-gray-300 px-5 py-2 rounded hover:bg-black dark:bg-gray-300 dark:text-gray-800 dark:hover:bg-gray-400 transition"
         >
           Download as PDF
-        </button>
+        </button> : <div></div> } 
       </div>
 
     </>
